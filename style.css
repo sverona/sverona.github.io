@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'ITC Usherwood';
+    src: url('/home/sasha/.fonts/Avenir/UsherwoodStd-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('/home/sasha/.fonts/Avenir/Avenir-Book.ttf');
+}
+
+body {
+    font-family: 'Avenir' !important;
+    font-size: 1rem !important;
+}
+
+#body div {
+    float: left;
+    height: 100%;
+}
+
+#left {
+    position: absolute;
+    font-family: 'ITC Usherwood';
+    color: #ccc;
+    font-size: 4rem;
+    top: 80px;
+    min-width: 550px;
+    max-height: 104px;
+}
+
+#left span {
+    display: block;
+    transform: rotate(-90deg) translateX(-100%);
+    transform-origin: 0 0;
+    min-width: 100%;
+}
+
+#content {
+    position: absolute;
+    top: 90px;
+    left: 104px;
+    width: 568px;
+    padding: 0 0.5rem 0 0;
+    border: solid black;
+    border-width: 0 1px 0 0;
+    height: 100%;
+}
+
+#header {
+    position: absolute;
+    top: -21px;
+    left: 0;
+}
+
+#header img{
+    transform: rotate(90deg) translateY(-100%) translateX(-50%) scaleX(1);
+    transform-origin: 0 0;
+    height: 800px;
+}
