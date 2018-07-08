@@ -1,21 +1,24 @@
 @font-face {
     font-family: 'ITC Usherwood';
     font-weight: 900;
-    src: url('fonts/UsherwoodStd-Black.woff2') format('woff2'),
+    src: url('fonts/UsherwoodStd-Black.otf') format('truetype'),
+         url('fonts/UsherwoodStd-Black.woff2') format('woff2'),
          url('fonts/UsherwoodStd-Black.woff') format('woff');
 }
 @font-face {
     font-family: 'ITC Usherwood';
     font-weight: 900;
     font-style: italic;
-    src: url('fonts/UsherwoodStd-BlackItalic.woff2') format('woff2'),
+    src: url('fonts/UsherwoodStd-BlackItalic.otf') format('truetype'),
+         url('fonts/UsherwoodStd-BlackItalic.woff2') format('woff2'),
          url('fonts/UsherwoodStd-BlackItalic.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Avenir';
     font-weight: 400;
-    src: url('fonts/Avenir-Book.woff2') format('woff2'),
+    src: url('fonts/Avenir-Book.ttf') format('truetype'),
+         url('fonts/Avenir-Book.woff2') format('woff2'),
          url('fonts/Avenir-Book.woff') format('woff');
 }
 
@@ -23,20 +26,23 @@
     font-family: 'Avenir';
     font-weight: 400;
     font-style: italic;
-    src: url('fonts/Avenir-BookOblique.woff2') format('woff2'),
+    src: url('fonts/Avenir-BookOblique.ttf') format('truetype'),
+         url('fonts/Avenir-BookOblique.woff2') format('woff2'),
          url('fonts/Avenir-BookOblique.woff') format('woff');
 }
 @font-face {
     font-family: 'Avenir';
     font-weight: 700;
-    src: url('fonts/Avenir-Heavy.woff2') format('woff2'),
+    src: url('fonts/Avenir-Heavy.ttf') format('truetype'),
+         url('fonts/Avenir-Heavy.woff2') format('woff2'),
          url('fonts/Avenir-Heavy.woff') format('woff');
 }
 @font-face {
     font-family: 'Avenir';
     font-weight: 700;
     font-style: italic;
-    src: url('fonts/Avenir-HeavyOblique.woff2') format('woff2'),
+    src: url('fonts/Avenir-HeavyOblique.ttf') format('truetype'),
+         url('fonts/Avenir-HeavyOblique.woff2') format('woff2'),
          url('fonts/Avenir-HeavyOblique.woff') format('woff');
 }
 
@@ -45,8 +51,8 @@ html, body {
 }
 
 body {
-    font-family: 'Avenir' !important;
-    font-size: 1rem !important;
+    font-family: 'Avenir';
+    font-size: 1rem;
 }
 
 #header {
