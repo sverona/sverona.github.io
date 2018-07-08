@@ -46,10 +46,6 @@
          url('fonts/Avenir-HeavyOblique.woff') format('woff');
 }
 
-html, body {
-    height: 100%
-}
-
 body {
     font-family: 'Avenir';
     font-size: 1rem;
@@ -121,9 +117,6 @@ a:hover, span#title:hover {
 
 #content {
     position: relative;
-
-    height: 100%;
-    min-height: 1024px;
 }
 
 #meta {
@@ -142,8 +135,8 @@ h1 {
 #left {
     position: sticky;
     top: -138px;
-    bottom: 0;
     min-width: 650px;
+    max-width: 700px;
     max-height: 120px;
     text-align: right;
     
@@ -184,7 +177,6 @@ span#name {
     margin-left: 104px;
     width: 568px;
     padding: 0 0.5rem 0 0;
-    height: 100%;
 }
 
 #right {
@@ -195,7 +187,6 @@ span#name {
     left: 700px;
     
     width: 200px;
-    max-height: 1024px;
     overflow: hidden;
 
     margin-top: 2em;
@@ -214,6 +205,7 @@ span#name {
     width: 568px;
     border-top: 1px solid #ccc;
     height: 70px;
+    max-height: 70px;
     padding-top: 0.5rem;
     margin-left: 104px;
     font-size: 16px;
