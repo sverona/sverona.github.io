@@ -1,43 +1,43 @@
 @font-face {
     font-family: 'ITC Usherwood';
     font-weight: 900;
-    src: url('/home/sasha/.fonts/ITC Usherwood/UsherwoodStd-Black.otf');
+    src: url('fonts/UsherwoodStd-Black.woff2') format('woff2'),
+         url('fonts/UsherwoodStd-Black.woff') format('woff');
 }
-
 @font-face {
     font-family: 'ITC Usherwood';
-    font-weight: 700;
-    src: url('/home/sasha/.fonts/ITC Usherwood/UsherwoodStd-Bold.otf');
+    font-weight: 900;
+    font-style: italic;
+    src: url('fonts/UsherwoodStd-BlackItalic.woff2') format('woff2'),
+         url('fonts/UsherwoodStd-BlackItalic.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Avenir';
     font-weight: 400;
-    src: url('/home/sasha/.fonts/Avenir/Avenir-Book.ttf');
+    src: url('fonts/Avenir-Book.woff2') format('woff2'),
+         url('fonts/Avenir-Book.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Avenir';
+    font-weight: 400;
+    font-style: italic;
+    src: url('fonts/Avenir-BookOblique.woff2') format('woff2'),
+         url('fonts/Avenir-BookOblique.woff') format('woff');
+}
+@font-face {
+    font-family: 'Avenir';
     font-weight: 700;
-    src: url('/home/sasha/.fonts/Avenir/Avenir-Heavy.ttf');
+    src: url('fonts/Avenir-Heavy.woff2') format('woff2'),
+         url('fonts/Avenir-Heavy.woff') format('woff');
 }
 @font-face {
     font-family: 'Avenir';
     font-weight: 700;
     font-style: italic;
-    src: url('/home/sasha/.fonts/Avenir/Avenir-HeavyOblique.ttf');
-}
-
-@font-face {
-    font-family: 'Avenir';
-    font-weight: 900;
-    src: url('/home/sasha/.fonts/Avenir/Avenir-Black.ttf');
-}
-@font-face {
-    font-family: 'Avenir';
-    font-weight: 900;
-    font-style: italic;
-    src: url('/home/sasha/.fonts/Avenir/Avenir-BlackOblique.ttf');
+    src: url('fonts/Avenir-HeavyOblique.woff2') format('woff2'),
+         url('fonts/Avenir-HeavyOblique.woff') format('woff');
 }
 
 html, body {
@@ -51,50 +51,69 @@ body {
 
 #header {
     position: absolute;
-    top: 0;
     left: 0;
     z-index: 1;
 
     height: 140px;
     width: 900px;
 
-    background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, .6) 80%, rgba(255, 255, 255, 0));
 }
 
 #header ul {
     display: inline-block;
 
     position: absolute;
-    top: -10px;
     left: 104px;
+
+    z-index: 3;
+
+    top: 10px;
     
     padding: 0;
+    padding-left: 0.25rem;
 
-    color: black;
+    color: white; 
+    font-size: 32px;
+    font-weight: 900;
 }
 
 #header li {
     display: inline-block;
+    font-family: 'ITC Usherwood';
+    color: #ccc;
 
+    z-index: 3;
+
+    display: inline-block;
     padding-right: 30px;
-
-    color: white;
-    font-size: 28px;
-    font-weight: 700;
-    text-shadow: 1px 1px #ffb6c1;
-
-    mix-blend-mode: difference;
     
 }
+
+#header li a {
+    display: inline-block;
+    z-index: 3;
+    text-shadow: 1px 1px #ccc;
+}
+
+a {
+    color: #e085c0;
+}
+
+a:hover, span#title:hover {
+    color: #ff71ce !important;
+    text-shadow: 1px 1px #ccc !important;
+
+}
+
 
 #header img {
     height: 920px;
 
-    transform: rotate(90deg) translateY(-100%) translateX(63%) scaleX(-1);
+    transform: rotate(90deg) translateY(-100%) translateX(53%) scaleX(-1);
     transform-origin: 0 0;
 }
 
-#body > div {
+#content {
     position: relative;
 
     height: 100%;
@@ -105,16 +124,27 @@ body {
     font-size: 14px;
 }
 
+#meta .date::before {
+    content: "Posted on "
+}
+
+h1 {
+    font-family: 'ITC Usherwood';
+    margin: 0.25rem 0;
+}
+
 #left {
-    position: fixed;
-    top: 150px;
-    z-index: 2;
-    
+    position: sticky;
+    top: -138px;
+    bottom: 0;
     min-width: 650px;
     max-height: 120px;
+    text-align: right;
+    
 }
 
 #left > span {
+    margin-top: 150px;
     font-family: 'ITC Usherwood';
     color: #ccc;
     display: block;
@@ -126,47 +156,59 @@ body {
     position: absolute;
     font-size: 4rem;
     min-width: 100%;
-    text-shadow: 1px 2px #ffb6c1;
+    text-shadow: 1px 2px #ff71ce;
 }
 
 #left span#sub {
     margin-left: 63px;
-    margin-top: -20px;
+    margin-top: 150px;
 }
 
-#name {
+
+span#mx {
+    color: #ff71ce;
+    text-shadow: 1px 1px #ccc;
+}
+
+span#name {
     color: #000 !important;
 }
 
 #content {
-    position: absolute;
-    top: 87px;
-    left: 104px;
+    margin-left: 104px;
     width: 568px;
-    padding: 0 1rem 0 0;
-    padding-bottom: 120px;
+    padding: 0 0.5rem 0 0;
     height: 100%;
 }
 
 #right {
     position: absolute;
+    z-index: 1;
+
     top: 87px;
     left: 700px;
+    
     width: 200px;
-    margin-top: 2em;
-    font-size: 14px;
-    padding: 0 0.5rem;
-    background-color: #eee;
-    z-index: 1;
-    text-align: center;
     max-height: 1024px;
     overflow: hidden;
+
+    margin-top: 2em;
+    padding: 0 0.5rem;
+
+    font-size: 14px;
+
+    background-color: #fafafa;
+
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px #ff71ce;
+    text-align: center;
 }
 
 #footer {
+    width: 568px;
     border-top: 1px solid #ccc;
     height: 70px;
     padding-top: 0.5rem;
-    padding-left: 104px;
+    margin-left: 104px;
     font-size: 16px;
 }
