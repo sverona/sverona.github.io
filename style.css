@@ -51,14 +51,16 @@ body {
     font-size: 1rem;
 }
 
+h1 {
+    font-family: 'ITC Usherwood';
+    margin: 0.25rem 0;
+}
+
 #header {
-    position: absolute;
-    left: 0;
     z-index: 1;
 
     height: 140px;
     width: 900px;
-
 }
 
 #header ul {
@@ -115,30 +117,16 @@ a:hover, span#title:hover {
     transform-origin: 0 0;
 }
 
-#content {
-    position: relative;
-}
-
-#meta {
-    font-size: 14px;
-}
-
-#meta .date::before {
-    content: "Posted on "
-}
-
-h1 {
-    font-family: 'ITC Usherwood';
-    margin: 0.25rem 0;
-}
+/* Left bar styles */
 
 #left {
     position: sticky;
     top: -138px;
+    margin-top: -120px;
     min-width: 650px;
-    max-width: 700px;
     max-height: 120px;
     text-align: right;
+    white-space: nowrap;
     
 }
 
@@ -164,32 +152,40 @@ h1 {
 }
 
 
-span#mx {
+#left span#mx {
     color: #ff71ce;
     text-shadow: 1px 1px #ccc;
 }
 
-span#name {
+#left span#name {
     color: #000 !important;
 }
 
+/* Main content styles */
+
 #content {
+    position: relative;
+    float: left;
     margin-left: 104px;
-    width: 568px;
+    width: 100%;
+    max-width: 568px;
     padding: 0 0.5rem 0 0;
 }
 
-#right {
-    position: absolute;
-    z-index: 1;
+#meta {
+    font-size: 14px;
+}
 
-    top: 87px;
-    left: 700px;
-    
-    width: 200px;
+#meta .date::before {
+    content: "Posted on "
+}
+
+#right {
+    min-width: 200px;
+    max-width: 300px;
     overflow: hidden;
 
-    margin-top: 2em;
+    margin: 2em auto 2em 104px;
     padding: 0 0.5rem;
 
     font-size: 14px;
@@ -202,7 +198,8 @@ span#name {
 }
 
 #footer {
-    width: 568px;
+    clear: left;
+    max-width: 568px;
     border-top: 1px solid #ccc;
     height: 70px;
     max-height: 70px;
