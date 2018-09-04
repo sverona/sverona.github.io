@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400');
+
+body {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 180px;
+    background:black;
+    color: rgba(237, 230, 204, 1.0);
+}
+
+h1, h2 {
+    font-family: 'IBM Plex Sans';
+    font-weight: 300;
+    text-align: center;
+    margin: 1% auto;
+    
+    opacity: 0;
+    animation: fadein 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1;}
+}
+
+h1 { font-size: 2rem; animation-delay: 0.5s; }
+h2 { font-size: 1.5rem; animation-delay: 2.5s; }
+
+.container {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+    border: 1px dashed rgba(237, 230, 204, 0.3);
+    border-radius: 50%;
+    opacity: 0;
+    animation: fadein 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 4.5s;
+}
+
+.anicircle {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(0,0,0,1);
+    border-radius:125px;
+    border-style:inset;
+    width: 100px;
+    height: 100px;
+    background-color: none;
+    animation-name: anicircle; 
+    animation-duration: 16s;
+    animation-delay: 4.5s;
+    animation-iteration-count: infinite;
+
+}
+
+.stillcircle {
+    position: absolute;
+    background-color:rgba(230,204,237,1);
+    border-radius:50%;
+    width: 102px;
+    height: 102px;
+    top:99px;
+    left:99px;
+}
+
+@keyframes anicircle {
+    0%   {border-color:rgba(217,202,147,1); height:100px; width:100px;}
+    31.25%  {border-color:rgba(237,230,204,1); height:300px; width:300px;  border-radius:200px;}
+    50%  {border-color:rgba(237,230,204,1); height:300px; width:300px;  border-radius:200px;}
+    87.5% {border-color:rgba(217,202,147,1); height:100px; width:100px;}
+    100% {border-color:rgba(217,202,147,1); height:100px; width:100px;}
+}
