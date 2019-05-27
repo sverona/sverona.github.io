@@ -120,37 +120,51 @@ a:hover, span#title:hover {
 /* Left bar styles */
 
 #left {
-    position: sticky;
-    top: -138px;
-    margin-top: -120px;
-    min-width: 650px;
-    max-height: 120px;
-    text-align: right;
-    white-space: nowrap;
-    
+    margin-left: 100px
 }
 
 #left > span {
-    margin-top: 150px;
     font-family: 'ITC Usherwood';
     color: #ccc;
+}
+
+#left span#sub {
     display: block;
-    transform: rotate(-90deg) translateX(-100%);
-    transform-origin: 0 0;
+    margin-top: -10px;
+    margin-left: 1em;
+}
+
+@media (screen and (min-width: 980px)) {
+    #left {
+        top: -138px;
+        margin-top: -120px;
+        min-width: 650px;
+        max-height: 120px;
+        text-align: right;
+        white-space: nowrap;
+        
+    }
+
+    #left > span {
+        transform: rotate(-90deg) translateX(-100%);
+        transform-origin: 0 0;
+    }
+
+    #left span#title {
+        position: absolute;
+    }
+
+    #left span#sub {
+        margin-left: 63px;
+        margin-top: 150px;
+    }
 }
 
 #left span#title {
-    position: absolute;
     font-size: 4rem;
     min-width: 100%;
     text-shadow: 1px 2px #ff71ce;
 }
-
-#left span#sub {
-    margin-left: 63px;
-    margin-top: 150px;
-}
-
 
 #left span#mx {
     color: #ff71ce;
