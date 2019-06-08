@@ -3,77 +3,75 @@
  */
 
 html {
-    font-size: 14px;
-    font-family: "AnkaCoderRegular" !important;
-    background-color: #ffb5cb;
+    font-size: 16px;
+    font-family: 'EBGaramond12Regular', serif;
 }
 
-body {
-    height: 100vh;
-    position: relative;
-    margin: 0;
-    margin-left: 3rem;
-    padding-left: 1rem;
-    background-color: #ffffff !important;
-}
+body { font-size: 100%; }
 
-#left, #main {
-    float: left;
-    clear: both;
-}
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
 
-#left {
-    position: relative;
-    border-bottom: 1px solid #ccc;
+body > div {
+  padding: 0.25rem;
+  width: 60ch;
+  max-width: 60ch;
+  margin: 0 auto;
 }
 
 #main {
-    max-width: 66ch;
+    padding-left: 0.5rem;
 }
 
 /*
  * typesetting
  */
 
-ul {
+div#head {
+    background-color: #ff7062;
+}
+
+div#menu ul {
     list-style-type: none;
-    margin: 1rem 0;
+    margin: 0;
     padding: 0;
+    font-family: "URWClassicoRegular";
 }
 
-ul li {
-    display: inline-block;
+div#menu li {
+  display: inline-block;
 }
 
-ul li::after {
-    content: ' / ';
+div#menu li::after {
+    content: '  &  ';
+    color: #92a8d1;
 }
 
-ul li:last-child::after {
+div#menu li:last-child::after {
     content: '';
 }
 
-#left h1 {
-    margin-bottom: 0;
-}
-
-.seraph {
-    color: #fff;
-    position: absolute;
-    left: -3rem;
-    top: 1.5rem;
-    font-size: 1.5rem;
-}
-
 #main {
-    font-size: 1rem;
     line-height: 1.4rem;
 }
 
-#splash {
-    text-align: right;
-    font-size: 4rem;
-    margin: 0;
-    padding: 0;
-    padding-right: 10px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "URWClassicoRegular", sans-serif;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#head span#title {
+  font-family: "URWClassicoRegular", sans-serif;
+  font-weight: 700;
+  padding-left: 0.5rem;
+  vertical-align: middle;
+  font-size: 1.5rem;
+}
+
+#head span#notnormal {
+  font-size: 1.5rem;
+  text-shadow: .375rem .375rem 0px #fff;
+  vertical-align: middle;
 }
