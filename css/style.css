@@ -1,0 +1,103 @@
+@import 'fonts.css';
+
+/* global styles */
+body {
+  font: 100% 'Source Serif Pro', serif;
+
+  max-width: 70ch;
+  margin: 0;
+}
+
+a { color: #f23074; }
+a:hover { color: #f1729f; }
+.span-1729 { color: #f1729f; }
+
+code {
+  font-family: monospace;
+  background-color: #eeeeee;
+  padding: 0.25ch 0.5ch;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+
+@media only screen and (min-width: 70ch) {
+  body { margin: 0.5rem auto; }
+}
+
+/* colors */
+blockquote { background-color: #eeeeee; }
+blockquote code { font-style: normal; }
+
+header {
+  border: solid #eeeeee;
+  border-width: 0 0 1px 0;
+}
+
+/* font sizing */
+h1 { font-size: 1.5rem;  line-height: 1.75rem;}
+h2 { font-size: 1.25rem; line-height: 1.5rem;}
+h3 { font-size: 1rem; line-height: 1.25rem;}
+
+header { font-size: 1.75rem; }
+#menu { font-size: 0.875rem; }
+.date { font-size: 0.875rem; }
+
+/* other typesetting */
+
+article { line-height: 1.4rem; }
+
+/* Stop headers from generating so much blank space */
+h1, h2, h3, h4, h5, h6 { margin-bottom: 0; }
+h2.post-title { margin-top: 0; }
+
+p {
+  margin: 0.5rem 0 0;
+}
+
+.date {
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
+header { padding: 1ch 1ch 1ch 0.5ch; }
+article { padding: 2ch; }
+
+blockquote {
+  font-style: italic;
+  padding: 1ch;
+}
+
+/* header stuff */
+header {
+  overflow: auto;      /* To encompass floated children. */
+  line-height: 1.75rem; /* To vertically center elements. */
+}
+
+header span { float: left; }
+#menu      { float: right; }
+
+/* horizontal menu stuff */
+#menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul#menu li { display: inline-block; }
+
+ul#menu li::after            { content: '  :  '; }
+ul#menu li:last-child::after { content: ''; }
+/* end horizontal menu stuff */
+
+/* Vanity for my name */
+header span#title {
+  font-weight: 700;
+  font-style: italic;
+  padding-left: 1ch;
+  color: #333;
+}
+
+header span#notnormal {
+  text-shadow: .375rem .375rem 0px #f1729f;
+  margin-top: -.1875rem;
+}

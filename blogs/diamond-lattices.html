@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="../css/style.css" />
+        <title></title>
+    </head>
+    <body>
+        <header>
+          <span id="notnormal">&ntriangleleft;</span> <span id="title">S. Verona Malone</span>
+          <nav>
+            <ul id="menu">
+              <li><a href="#">posts</a></li>
+              <li><a href="#">projects</a></li>
+              <li><a href="https://github.com/sverona">github</a></li>
+              <li><a href="#">about</a></li>
+              <li><a href="#">contact</a></li>
+            </ul>
+          </nav>
+        </header>
+        <article>
+          
+<p><link rel="stylesheet" href="../css/katex.min.css" /><script defer src="../js/katex.min.js"></script><script defer src="../js/load-katex.js"></script></p>
+
+<h1>What I know about diamond lattices</h1>
+
+<p>LaTeX markup is styled <code>like</code> <code>this</code>. <a href="#" id="load-katex">Click here to load.</a></p>
+
+<p>The <i>Fibonacci lattices</i> <code>L_{m,n}</code> are the subject of my Master's thesis. This document is a working reference, mostly for my own use, detailing what observations I've been able to assemble so far.</p>
+
+<p>More precise mathematical definitions for most of this can be found in <a href="https://arxiv.org/abs/1812.04434">Donnelly 2018</a>. </p>
+
+<h2>Diamond lattices</h2>
+
+<p>The set <code>\mathbb{Z}^n</code> consists of all <code>n</code>-tuples with integer entries. We'll refer to its members as <code>t_1, t_2, \dots</code>.</p>
+
+<p>If a tuple <code>t_1</code> is obtainable from <code>t_2</code> by adding one to exactly one entry, we say <code>t_1</code> <i>covers</i> <code>t_2</code> and write <code>t_1 \to t_2</code>. So <code>(2, 5, 8) \in \mathbb{Z}^3</code> covers <code>(2, 5, 7)</code> and <code>(2, 4, 8)</code>, but not <code>(2, 4, 7)</code> or <code>(3, 6, 9)</code>.</p>
+
+<p>A <i>diamond lattice</i> is (identified with) a finite subset of <code>n</code>-tuples that is closed under taking entrywise min or max.</p>
+
+<p>We'll draw them as <i>Hasse diagrams</i>, graphs in which tuples are represented as nodes and covering relations <code>t_1 \to t_2</code> as edges from <code>t_1</code> to <code>t_2</code>, and for the most part use this graph-theoretic terminology in the sequel. In a moment, we'll assign these edges colors.</p>
+
+<p>Hopefully the picture at right ((TODO: set a picture here)) makes clear the choice of name; every pair of descending edges (signifying the entrywise max of two elements) is met by a pair of ascending edges (signifying the entrywise min,) forming a diamond.</p>
+
+<h2>Fibonacci lattices</h2>
+
+<p>To obtain the Fibonacci lattice <code>L_{m, n}</code>, we take the <code>n</code>-tuples that</p>
+
+<ol>
+<li> have <code>k</code>th entry <code>(k - 1)m + r</code> with <code>1 \leq r \leq m</code>, and</li>
+<li> contain no consecutive integers.</li>
+</ol>
+
+<p>So, for instance, <code>L_{3, 2}</code> contains <code>(1, 4)</code> and <code>(2, 6)</code>, but not <code>(4, 6)</code> (rule 1) or <code>(3, 4)</code> (rule 2.)</p>
+
+<p>If <code>L_{m, n}</code> contains a tuple <code>t</code>, we'll say <code>t</code> is <code>m</code>-*valid*.</p>
+
+<p>If <code>t_1 \to t_2</code>, then there is exactly one index at which the tuples differ. Call it <code>k</code>; then we'll say <code>t_1 \to t_2</code> is a <code>k</code>-<i>transition</i>.</p>
+
+<p>Now we can describe the edge colors as follows. <code>t_1 \to t_2</code> must be a <code>k</code>-transition for some <code>k</code>, and the <code>k</code>th entry of <code>t_1</code> must be <code>(k - 1)m + r</code>, where <code>1 \leq r \leq m</code>. The color of the edge <code>t_1 \to t_2</code> is then</p>
+
+<ol>
+<li> <code>r</code> if <code>k</code> is odd,</li>
+<li> <code>m + 1 - r</code> if <code>k</code> is even.</li>
+</ol>
+
+<h2>Drawing diamond lattices</h2>
+
+<p>By <i>drawing</i> an <code>n</code>-dimensional lattice we mean "choosing 2-vectors <code>(x_1, y_1), \dots, (x_n, y_n)</code> and representing edges corresponding to <code>k</code>-transitions by the vector <code>(x_k, y_k)</code>."</p>
+
+<p>The best-behaved interesting examples are the lattices <code>L_{m, 3}</code>, which are <a href="http://mathworld.wolfram.com/CubicLattice.html">cubic</a>. They can be drawn isometrically with the vectors <code>(-1, -1), (0, -1), (1, -1)</code>.</p>
+
+<p>Before we realized it was easier to mess with the other coefficient, we wanted to draw <code>L_{3, n}</code> for <code>n > 3</code>. These get messy fast, so I implemented the algorithm from &#167;3 of <a href="https://arxiv.org/abs/cs/0406020">Eppstein 2004</a> and fed the data into Sage.</p>
+
+<h2>Components</h2>
+
+<p>A subset of a lattice is <i>connected</i> if there exists a path (in the graph-theoretic sense) between any two elements. A subset of a lattice is <i><code>k</code>-color-connected</i> if the path can be taken to be comprised entirely of edges with color <code>k</code>.</p>
+
+<p>A maximal connected subset (<i>resp</i>. maximal <code>k</code>-color-connected subset) of a lattice is called a <i>component</i> (<i>resp</i>. <i><code>k</code>-color-component</i> or just <i><code>k</code>-component</i>.) Finite lattices are connected as an immediate consequence of their definition, so the important definition here is that of color-components.</p>
+
+<p>We say that a <code>k</code>-component has <i>shape</i> <code>[x_1, \dots, x_n]</code> if it is a Cartesian product of <code>(x_i + 1)</code>-chains; for instance, a <code>m</code>-chain has shape <code>[m]</code>, while a cube has shape <code>[1, 1, 1]</code>.</p>
+
+<p>The length of such an array is the maximum size of any antichain (or, equivalently, chain decomposition.)</p>
+
+<p>Lattices that have shapes are <a href="http://mathworld.wolfram.com/Zonotope.html">zonotopes</a>, but not every zonotope has a shape.</p>
+
+<p>Not every component has a shape (observe the counterexample at right.) We claim</p>
+
+<p><blockquote>every component of <code>L_{m, n}</code> has a shape.</blockquote></p>
+
+<p>Here's why. Call a sequence of <code>h</code> covering relations <code>top = t_0 \to t_1 \to \dots \to t_h = bottom</code> a <i>descending path</i>. Since the lattice is connected, such a path exists (and it can be made descending, find where in [Donnelly 2018] to cite this.)</p>
+
+<p>Each element of a descending path is a <code>k</code>-transition for some <code>k</code>. Any other descending path effects the same transitions in a different order. Not every permutation of transitions gives a valid path, but if they were, the sequence of all possible descending paths would form an <code>h</code>-hypercube.</p>
+
+<p>We may think of the lattice as being "made up" of components. Diamonds whose edges are of different colors connect four components. Vertices (crossings) connect two.</p>
+
+<h2>Proposition</h2>
+
+<p>In this section we'll enumerate the possible color-components of <code>L(m, 3)</code>.</p>
+
+<p>Any descending path from the top of a component to the bottom consists of <code>d</code> <code>k</code>-transitions. Since there is only one possible way to perform a <code>k</code>-transition of any given color, no <code>k</code> can occur more than once. Hence:</p>
+
+<p><blockquote>no component of <code>L_{m, n}</code> can have height more than <code>n</code>.</blockquote></p>
+
+<p>Now consider a component of height <code>d</code>. Each edge incident to a given node corresponds to a <code>k</code>-transition to or from that node, and as above, no two can correspond to the same <code>k</code>. Thus:</p>
+
+<p><blockquote>the maximum degree of a node within a component is <code>h</code>.</blockquote></p>
+
+<p>The key insight is that <i>the shape of a component is a partition of its height</i>.</p>
+
+<p>So the possible shapes of each component are just the partitions of 1, 2, and 3. By inspection, these are all achieved. ((TODO: set diagrams))</p>
+
+<h2>Diamond and crossing relations</h2>
+
+<p>Our ultimate aim is to construct a representation (of which semisimple Lie algebras?) by assigning rational <i>weights</i> to each edge. (These correspond to what?) The <a href="http://mathworld.wolfram.com/Chevalley-SerreRelations.html">Serre relations</a> are the rules that dictate one way to do this correctly.</p>
+
+<p>In his Ph.D. thesis and a series of papers that followed (cite), Donnelly developed a way to encode the Serre relations on a lattice.</p>
+
+<p>In a diamond lattice, for every pair of nodes <code>u, v</code> for which <code>u \vee v</code> covers both <code>u</code> and <code>v</code>, we have also that <code>u \wedge v</code> is covered by both <code>u</code> and <code>v</code>. These form the namesake <i>diamond of edges</i>. The weights assigned to the four edges of any diamond must satisfy a <i>diamond relation</i> as follows:</p>
+
+<p><blockquote>the product of the top two edge weights must equal the product of the bottom two.</blockquote></p>
+
+<p>Additional relations are satisfied by each vertex.</p>
+
+<h2>Solving components</h2>
+
+<p>We say a component has <i>degree</i> <code>d</code> if knowing <code>d</code> edge weights forces a finite number of solutions. (more rigorously, if the algebraic variety determined by the polynomial ring in <code>\lvert E(component) \rvert</code> variables, modulo that component's diamond and crossing relations, has dimension <code>d</code>.)</p>
+
+<p>In <code>L_{m, 3}</code>, chains have degree 0; every other component has degree 1, except the cube <code>[1, 1, 1]</code>, which has degree 2.</p>
+
+<h2>The general algorithm for solving the lattice</h2>
+
+<p>Of the two kinds of connections between components, only multicolored diamonds actually allow for any "transfer of information"; the crossing relations are confined to a single color.</p>
+
+<p>Further, knowing any three edges on such a diamond determines the last one.</p>
+
+<p>So our strategy will proceed as follows:</p>
+
+<ol>
+<li> Assign as many free variables to each component as their degree. Fill in degree-0 components.</li>
+<li> Generate all possible diamond relationships as dependencies; for instance, the diamond relation <code>ab = cd</code> becomes <code>a, b, c \to d</code>, <code>a, b, d \to c</code>, <code>a, c, d \to b</code>, <code>b, c, d \to a</code>.</li>
+</ol>
+
+        </article>
+    </body>
+</html>
