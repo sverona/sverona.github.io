@@ -3,35 +3,42 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/urw-classico" type="text/css"/> 
-   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/eb-garamond" type="text/css"/> 
+ <link rel="stylesheet" media="screen" href="https://raw.githubusercontent.com/adobe-fonts/source-serif-pro/release/source-serif-pro.css" type="text/css" />
+
         <link rel="stylesheet" href="style.css" />
         <title></title>
     </head>
     <body>
         <div id="head">
-          <span id="notnormal">&ntriangleleft;</span> <span id="title">S. Verona Malone</h1>
-        </div>
-        <div id="menu">
-            <ul>
-                <li><a href="#">projects</a></li>
-                <li><a href="https://github.com/sverona">github</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">contact</a></li>
-            </ul>
+          <span id="notnormal">&ntriangleleft;</span> <span id="title">S. Verona Malone</span>
+        <ul id="menu">
+          <li><a href="#">posts</a></li>
+          <li><a href="#">projects</a></li>
+          <li><a href="https://github.com/sverona">github</a></li>
+          <li><a href="#">about</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
         </div>
         <div id="main">
-          <h2>Header 2</h2>
-          <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.</p>
+          <h2 class="post-title">How is this website designed?</h2>
+          <span class="date">June 8, 2019 &mdash; 9:37am</span>
+          <p>Since my personal website is (logically) a model for how I approach web design in general, I ought to write up a document detailing the decisions I've made. Here it is.</p>
+          <h3>Generally</h3>
+          <p>I consider the unnecessary use of JavaScript to be a cardinal sin.</p>
+          <p>I've adhered as far as my taste will allow to the principles of <a href="http://brutalist-web.design">brutalist design</a>, particularly the dictum:</p>
+          <blockquote>
+            ...start with left-aligned black text on a white background, and [...] apply styling only to solve a specific problem. 
+          </blockquote>
+          <p>The specific problems that my styling choices solve are mostly described <a href="https://jrl.ninja/etc/1/">here</a>. Most everything not covered there is for either the site header or my personal sensibilities.</p>
+          <p>My commented stylesheet is <a href="style.css">here</a>, if you'd like to confirm this.</p>
+          <h3>Typesetting</h3>
 
-        <h3>Header 3</h3>
-<blockquote>"What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</blockquote>
+          <p>I nicked the typeface, <a href="https://adobe-fonts.github.io/source-serif-pro">Source Serif Pro</a>, from <a href="https://gwern.net">Gwern</a>. In OTF format, the four fonts this site uses (Regular and Semibold, plus italics) collectively weigh in at <span class="inline-code">588 kB</span>.
 
-<p>It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops of rain could be heard hitting the pane, which made him feel quite sad. "How about if I sleep a little bit longer and forget all this nonsense", he thought, but that was something he was unable to do because he was used to sleeping on his right, and in his present state couldn't get into that position.</p>
-
-<p>However hard he threw himself onto his right, he always rolled back to where he was. He must have tried it a hundred times, shut his eyes so that he wouldn't have to look at the floundering legs, and only stopped when he began to feel a mild, dull pain there that he had never felt before. "Oh, God", he thought, "what a strenuous career it is that I've chosen! Travelling day in and day out. Doing business like this takes much more effort than doing your own business at home, and on top of that there's the curse of travelling, worries about making train connections, bad and irregular food, contact with different people all the time so that you can never get to know anyone or become friendly with them. It can all go to Hell! " He felt a slight itch</p>
-
+          <h3>Colors</h3>
+          <p>A simple site like this doesn't need more than one.</p>
+          <p><a href="https://en.wikipedia.org/wiki/1729_(number)"</a>1729</a> is the smallest integer that is the sum of two positive perfect cubes in more than one way. Coincidentally, <span class="inline-code span-1729">#f1729f</span> is a very pretty pale pink, so I wanted to use it as my site's accent color. It's the color of hover links and of the drop-shadow at top left of this page, next to my name.</p>
+          <p>Links are set in <span class="inline-code"><a>#f23074</a></span>, which is the same hue with the saturation cranked up for readability.</p>
         </div>
     </body>
 </html>
